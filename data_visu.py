@@ -18,18 +18,18 @@ amt_mean=reg.amount.sum()
 category_count=reg.category.value_counts()
 # print(category_count)   # Sports         10099
                         # Technology     10029
-						# Environment     9980
-						# Games           9955
-						# Fashion         9937
+		        # Environment     9980
+			# Games           9955
+			# Fashion         9937
 srt=reg.sort_values(by='amount',ascending=False)
 #print(srt)
 evnt_count=reg.event_name.value_counts()
 #print(evnt_count)
 reg.set_index('category')
 #print(reg)
-extract=reg.loc[reg['category'].isin(['Sports','Environment']) ]
+extract=reg.loc[reg['category'].isin(['Sports','Environment']) ] #all the rows with sports and environment in category column gets stored in extract variable 
 #print(extract)						
-ac_data=pd.DataFrame(extract)
+ac_data=pd.DataFrame(extract) # converts extract into dataframe
 ac_data.head()
 ac_data.set_index("category")
 ac_data=ac_data.sort_values(by='amount',ascending=False)# ac_data stores the actual data which is required for our prediction
